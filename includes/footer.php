@@ -87,18 +87,12 @@
         </div>
 
         <ul class="social-icon-two">
-          <li>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fab fa-pinterest"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </li>
+          <?php foreach ($company->branches as $key => $value) { ?>
+            <li>
+              <a href="<?= $value->desc ?>"><span class="fab fa-<?= strtolower($value->title) ?>"></span></a>
+            </li>
+          <?php  } ?>
+
         </ul>
       </div>
     </div>
