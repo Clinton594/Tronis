@@ -84,7 +84,7 @@ if ($proceed) {
         ];
 
         $data    = $messenger->sendMail($mail);
-        $response = $Response::set(["data" => $data], !empty($data->status));
+        $response = $Response::set(["data" => $data], $data->code === 200);
       } else $response = $Response::set(["message" => "Some parameters are required", "code" => "bad_request"]);
       break;
     default:
