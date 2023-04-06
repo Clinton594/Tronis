@@ -583,16 +583,16 @@
 										<div class="col-lg-12 col-md-12 col-sm-12 form-group">
 											<label>Estimated Weight (kg):</label>
 											<div class="range-slider-one">
-												<input type="text" class="range-amount" name="field-name" readonly />
+												<input type="text" required class="range-amount" name="weight" readonly />
 												<div class="distance-range-slider"></div>
 											</div>
 										</div>
 
 										<div class="col-lg-6 col-md-6 col-sm-12 form-group">
 											<label>Freight type:</label>
-											<select class="custom-select">
+											<select class="custom-select" required name="cargo_type">
 												<?php foreach ($cargo  as $key => $value) { ?>
-													<option value=""><?= $value ?></option>
+													<option value="<?= $value ?>"><?= $value ?></option>
 												<?php } ?>
 
 											</select>
@@ -600,15 +600,15 @@
 
 										<div class="col-lg-6 col-md-6 col-sm-12 form-group">
 											<label>Delivery type:</label>
-											<select class="custom-select">
+											<select required class="custom-select" name="delivery_type">
 												<option value="">Select</option>
-												<option value="">Door to Door</option>
-												<option value="">Warehouse Collection</option>
+												<option value="My Door">Door to Door</option>
+												<option value="Your Warehouse">Warehouse Collection</option>
 											</select>
 										</div>
 
 										<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-											<button class="theme-btn btn-style-two hvr-light" type="submit" name="submit-form"><span class="btn-title">Submit Request</span></button>
+											<button class="theme-btn btn-style-two hvr-light submit" type="submit" name="submit-form"><span class="btn-title">Submit Request</span></button>
 										</div>
 									</div>
 								</form>
@@ -836,6 +836,13 @@
 				$(".close-search").click(() => $(".main-header").removeClass("moblie-search-active"))
 			});
 		}
+
+		$(document).ready(function() {
+			$("#contact-form").submitForm({
+				validation: "normal",
+				process_url: `${site.process}custom/send-message`,
+			})
+		})
 	</script>
 </body>
 

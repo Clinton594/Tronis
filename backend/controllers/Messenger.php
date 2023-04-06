@@ -62,7 +62,7 @@ class Messenger
 
       $post->html = curl_post("{$uridata->backend}includes/email-template/{$maps[$post->template]}.php", $post);
 
-      return self::mailTrap($post);
+      return get_env("ENV") === "development" ?  self::mailTrap($post) : self::phpMailer($post);
     }
   }
 

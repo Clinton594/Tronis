@@ -19,12 +19,28 @@ function default_tracking($post)
 		global $generic;
 		global $paramControl;
 		$tracking_messages = $paramControl->load_sources("tracking_message");
+		$ds = array_keys(arrray($tracking_messages));
 		$tracking = [
 			"waybill_id" => $post->primary_key,
-			"tracking_message" => reset($tracking_messages),
+			"tracking_message" => reset($ds),
 			"status" => "warning"
 		];
-		$generic->insert($tracking, "tracking");
+		$response = $generic->insert($tracking, "tracking");
+		if (!empty($response->status)) {
+			$messenger = new Messenger($generic);
+			$company = $generic->company();
+			$mail       = (object)[
+				'subject'    =>  "New Waybill",
+				'body'      =>  "Hi admin, a new waybill with ID:{$post->tracking_number} was created",
+				'from'      =>  $company->email,
+				'to'        =>  $company->email,
+				'from_name'  =>  $company->name,
+				'to_name'    =>  $company->name,
+				"template"  =>  "code",
+				"code"  =>  $post->tracking_number,
+			];
+			$messenger->sendMail($mail);
+		}
 	}
 	return $post;
 }

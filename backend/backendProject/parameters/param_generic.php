@@ -355,6 +355,8 @@ $param = [
 		'primary_key' => 'id',
 		'page_title' => 'Waybills',
 		'sort' => 'id DESC',
+		'pre_submit_function' => "tracking_number",
+		'post_submit_function' => "default_tracking",
 		"extra_values" => "date_updated=now()",
 		"fixed_values" => "user_id=$user_id",
 		'display_fields' => [
