@@ -289,21 +289,20 @@
 						<span class="title">Results in <br />few seconds</span>
 					</div>
 					<div class="tracking-form">
-						<h4 class="title">Track your <br />Order</h4>
+						<h4 class="title">Track your <br />Waybill</h4>
 						<!-- Tracking Form -->
-						<form method="post">
+						<form method="post" onsubmit="getreceipt(event, this);">
 							<div class="row">
 								<div class="form-group col-lg-4 col-md-12 col-sm-12">
 									<span class="icon lnr-icon-user"></span>
-									<input type="text" name="field_name" placeholder="Your Tracking ID Now" />
+									<input required type="text" name="field_name" placeholder="Your Tracking Number" />
 								</div>
 								<!-- Form Group -->
 								<div class="form-group col-lg-4 col-md-12 col-sm-12">
-									<input type="text" disabled readonly name="field_name" />
 								</div>
 								<!-- Form Group -->
 								<div class="form-group col-lg-4 col-md-12 col-sm-12 text-end">
-									<button type="button" class="search-btn theme-btn btn-style-one"><span class="btn-title">Track Order</span></button>
+									<button type="submit" class="theme-btn btn-style-one"><span class="btn-title">Track Order</span></button>
 								</div>
 							</div>
 						</form>
@@ -824,6 +823,20 @@
 	</div>
 	<!-- End Page Wrapper -->
 	<?php require_once("includes/scripts.php") ?>
+	<script src="<?= $uri->backend ?>js/controllers.js"></script>
+	<!--  -->
+	<script>
+		function getreceipt(e, y) {
+			e.preventDefault();
+			const data = $(y).serializeArray();
+			const value = data.map(x => x.value).pop();
+
+			$("#search-inner").load(`${site.domain}invoice?tracking_number=${value}#Waybill`, function(response) {
+				$(".main-header").addClass("moblie-search-active");
+				$(".close-search").click(() => $(".main-header").removeClass("moblie-search-active"))
+			});
+		}
+	</script>
 </body>
 
 </html>

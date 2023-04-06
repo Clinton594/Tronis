@@ -1,9 +1,120 @@
-<?php require_once("includes/links.php"); ?>
-
-
-<link rel="stylesheet" href="https://unpkg.com/@clr/ui/clr-ui.min.css" />
+<? //php require_once("includes/links.php");
+?>
 
 <style>
+  .modal-body {
+    color: black;
+  }
+
+  .clr-timeline.clr-timeline-vertical {
+    flex-direction: column;
+    min-width: 16rem;
+  }
+
+  .clr-timeline {
+    display: flex;
+    padding: 0.6rem;
+  }
+
+  .clr-timeline.clr-timeline-vertical .clr-timeline-step:not(:last-of-type) {
+    margin-bottom: 1.8rem;
+  }
+
+  .clr-timeline.clr-timeline-vertical .clr-timeline-step {
+    flex-direction: row;
+    margin-left: 0;
+    position: relative;
+  }
+
+  .clr-timeline-step cds-icon,
+  .clr-timeline-step clr-icon {
+    height: 1.8rem;
+    width: 1.8rem;
+    min-height: 1.8rem;
+    min-width: 1.8rem;
+  }
+
+  .clr-timeline.clr-timeline-vertical .clr-timeline-step-body {
+    display: flex;
+    flex-direction: column;
+    min-width: 8.9rem;
+    margin-left: 0.6rem;
+    margin-top: 0.3rem;
+  }
+
+  .clr-timeline.clr-timeline-vertical .clr-timeline-step:not(:last-of-type) .clr-timeline-step-body::before {
+    position: absolute;
+    width: 0.1rem;
+    height: calc(100% + 0.2rem);
+    transform: translate(-1.55rem, 1.4rem);
+  }
+
+  .clr-timeline.clr-timeline-vertical .clr-timeline-step-title {
+    margin-top: 0;
+  }
+
+  .clr-timeline-step-title {
+    color: #666;
+
+    font-size: .65rem;
+    font-weight: 500;
+
+    line-height: .9rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .clr-timeline-step:not(:last-of-type) .clr-timeline-step-body::before {
+    content: "";
+    background: #b3b3b3;
+
+    height: 0.1rem;
+    width: calc(100% - 0.9rem - 0.1rem);
+    transform: translate(1.7rem, -0.95rem);
+  }
+
+  .clr-timeline-step-description {
+    color: #666;
+
+    font-size: .55rem;
+    line-height: .8rem;
+  }
+
+  .clr-timeline.clr-timeline-vertical .clr-timeline-step-header {
+    text-align: right;
+    white-space: normal;
+    word-break: break-word;
+    width: 3rem;
+    min-width: 3rem;
+    margin-right: 0.6rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+  }
+
+  .clr-timeline-step-header {
+    color: #8c8c8c;
+    font-size: .65rem;
+    line-height: .9rem;
+    white-space: nowrap;
+    margin-bottom: 0.4rem;
+  }
+
+  .clr-timeline-step {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 8.75rem;
+    margin-left: 0.6rem;
+  }
+
+  div#search-inner {
+    top: 0;
+    height: 100vh;
+    overflow: auto;
+    width: 100vw;
+    max-width: unset;
+  }
+
   .waybil-container figure {
     width: 100%;
     margin: 0 auto;
@@ -44,9 +155,12 @@
 </style>
 
 
-<div class="waybil-container">
+<div id="waybill" class="waybil-container">
   <div class="modal-dialog">
     <div class="modal-content modal-md">
+      <!-- <div class="modal-header">
+        <button type="button" onclick="closeModal()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div> -->
       <div class="modal-body">
         <?php
         $post = object($_GET);
