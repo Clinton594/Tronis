@@ -30,6 +30,7 @@ $fmn->setAttribute(NumberFormatter::FRACTION_DIGITS, 2);
 
 $valid_pages = [
   '' => "views/home.php",
+  'invoice' => "views/invoice.php",
 
 ];
 $cache_control = "?ver=" . random();

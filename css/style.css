@@ -1,4 +1,4 @@
-/* Tonis | Logistics HTML Template
+g/* Tonis | Logistics HTML Template
 
 Template Name: Tonis
 Version: 1.0.0
@@ -1652,7 +1652,7 @@ textarea.form-control {
   top: 0;
   height: 100vh;
   width: 100%;
-  z-index: 99;
+  z-index: 999999;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 500ms ease;

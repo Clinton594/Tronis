@@ -83,7 +83,7 @@
     <div class="auto-container">
       <div class="inner-container">
         <div class="copyright-text">
-          <p>&copy; Copyright 2022 by <a href="index.html">Company.com</a></p>
+          <p>&copy; Copyright 2022 by <a href="#"><?= $company->name ?></a></p>
         </div>
 
         <ul class="social-icon-two">

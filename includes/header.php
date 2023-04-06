@@ -3,6 +3,19 @@
 
 	<!-- Main Header-->
 	<header id="home" class="main-header header-style-one">
+		<div class="search-popup">
+			<span class="search-back-drop"></span>
+			<button class="close-search"><span class="fa fa-times"></span></button>
+
+			<div class="search-inner">
+				<form method="post" action="https://kodesolution.com/html/2022/tronis-html/index.html">
+					<div class="form-group">
+						<input type="search" name="search-field" value="" placeholder="Search..." required="" />
+						<button type="submit"><i class="fa fa-search"></i></button>
+					</div>
+				</form>
+			</div>
+		</div>
 		<!-- Header Top -->
 		<div class="header-top">
 			<div class="top-left">
@@ -50,6 +63,7 @@
 					<!-- Main Menu End-->
 
 					<div class="outer-box">
+
 
 						<a href="#contact" class="theme-btn d-block btn-style-one alternate"><span class="btn-title">Send a Message</span></a>
 

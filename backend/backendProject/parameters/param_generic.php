@@ -292,14 +292,14 @@ $param = [
 		'primary_key' => 'id',
 		'page_title' => 'Tracking',
 		"extra_values" => "date_updated=now()",
-		'sort' => 'id DESC',
+		'sort' => 'id ASC',
 		'display_fields' => [
 			[
 				'column' => 'tracking_message',
 				'description' => 'Tracking Message',
 				'component' => 'span',
-				'source' => 'tracking_status',
-				'action' => 'select',
+				// 'source' => 'tracking_status',
+				// 'action' => 'select',
 			],
 			[
 				'column' => 'status',
@@ -341,6 +341,7 @@ $param = [
 							'description' => 'Activation Status',
 							'class' => 'left col s12 m12',
 							'source' => 'tracking_status',
+							'required' => true,
 							'type' => 'select',
 						],
 					]

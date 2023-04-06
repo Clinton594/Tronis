@@ -303,7 +303,7 @@
 								</div>
 								<!-- Form Group -->
 								<div class="form-group col-lg-4 col-md-12 col-sm-12 text-end">
-									<button type="submit" class="theme-btn btn-style-one"><span class="btn-title">Track Order</span></button>
+									<button type="button" class="search-btn theme-btn btn-style-one"><span class="btn-title">Track Order</span></button>
 								</div>
 							</div>
 						</form>
