@@ -49,9 +49,9 @@ function default_tracking($post)
 function tracking_number($post)
 {
 
+	$post->return_values = true;
 	if (empty($post->id)) {
 		$post->tracking_number = uniqid(random(2));
-		$post->return_values = true;
 	}
 	return ($post);
 }

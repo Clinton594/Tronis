@@ -13,7 +13,7 @@
           <div class="inner-box">
             <div class="icon-box"><i class="icon flaticon-international-shipping-2"></i></div>
             <h4 class="title">Address</h4>
-            <div class="text">30 St Kilda Road, Jackson Store, Australia</div>
+            <div class="text"><?= $company->address ?></div>
           </div>
         </div>
 
@@ -23,8 +23,8 @@
             <div class="icon-box"><i class="icon flaticon-stock-1"></i></div>
             <h4 class="title">Contact</h4>
             <div class="text">
-              <a href="mailto:needhelp@company.com">needhelp@company.com</a>
-              <a href="tel:+92(8800)48720">+92 (8800) 48720</a>
+              <a href="mailto:<?= $company->email ?>"><?= $company->email ?></a>
+              <a href="tel:<?= $company->phone ?>"><?= $company->phone ?></a>
             </div>
           </div>
         </div>
