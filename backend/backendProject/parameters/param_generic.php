@@ -320,7 +320,7 @@ $param = [
 
 		'form' => [
 			"form_view" => "modal",
-			"form_action" => "tracking_prepare",
+			"onload" => "tracking_prepare",
 			'sections' => [
 				[
 					'position' => 'center',
@@ -343,6 +343,23 @@ $param = [
 							'source' => 'tracking_status',
 							'required' => true,
 							'type' => 'select',
+						],
+						[
+							'column' => 'add_date',
+							'description' => 'Set my own date',
+							'class' => 'left col s12 m12',
+							'source' => 'bool',
+							'type' => 'switch',
+							"event" => [
+								"type" => "onchange",
+								"function" => "toggledate(this)"
+							]
+						],
+						[
+							'column' => 'date_created',
+							'description' => 'Change Date',
+							'class' => 'left col s12 m12',
+							'type' => 'datetime',
 						],
 					]
 				]
@@ -385,8 +402,16 @@ $param = [
 				'component' => 'span'
 			],
 			[
+				'column' => 'waybill_id',
+				'actioncol' => 'waybill_id',
+				'description' => 'Tracking',
+				"action" => "count",
+				"table" => "tracking",
+				'component' => 'span'
+			],
+			[
 				'column' => 'date_created',
-				'description' => 'Opening Date',
+				'description' => ' Date',
 				'component' => 'span',
 				'action' => 'datetime'
 			],

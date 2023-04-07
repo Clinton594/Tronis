@@ -80,12 +80,14 @@ class FormControl
 			$keep     = (stripos($class, "keep") === false) ? "" : "keep";
 			$class    = str_replace("keep", "", $class);
 
+			if ($type == "datetime") $type = "datetime-local";
 			if (
-				$type == "text" || $type == "url" || $type == "tel" || $type == "password" || $type == "date" || $type == "email" || $type == "number" || $type == "hidden" || $type == "button" || $type == "combo" || $type == "textarea" || $type == "time" ||
+				$type == "text" || $type == "url" || $type == "tel" || $type == "datetime-local" || $type == "password" || $type == "date" || $type == "email" || $type == "number" || $type == "hidden" || $type == "button" || $type == "combo" || $type == "textarea" || $type == "time" ||
 				$type == "richtext-title"
 			) { ?>
 				<div class="input-field <?= $class; ?>">
-					<?php if ($type == "textarea" || $type == "button") { ?><<?= $type ?> <?php } else { ?> <input <?php } ?> <?php if ($Disabled == true) { ?> disabled="disabled" <?php } ?> <?php if ($Readonly == true) { ?>readonly="readonly" <?php } ?> <?php if (!empty($Event)) { ?> <?= $Event["type"] ?>="<?= $Event["function"] ?>" <?php } ?> <?php if ($multi != true) { ?> browser-default <?php } ?> <?php if ($Required == true) { ?>required="required" <?php } ?> <?php if ($type == 'number') { ?>step="any" <?php } ?> <?php if ($type == 'combo') { ?> display_fields="<?= $multi ?>" insert_field="<?= $Value ?>" <?php } ?> <?php if ($type != 'combo') { ?>value="<?= $Value ?>" <?php } ?> <?php if ($type != 'combo' && strlen($Value)) { ?>data-keep="<?= $Value ?>" <?php } ?> data-source="<?= $source ?>" name="<?= $name . $ex; ?>" id="<?= $name . $ex; ?>" type="<?= $type ?>" class="filled-in browser-default <?= "{$type} {$name} {$keep}" ?>
+					<?php if ($type == "textarea" || $type == "button") { ?>
+						<<?= $type ?> <?php } else { ?> <input <?php } ?> <?php if ($Disabled == true) { ?> disabled="disabled" <?php } ?> <?php if ($Readonly == true) { ?>readonly="readonly" <?php } ?> <?php if (!empty($Event)) { ?> <?= $Event["type"] ?>="<?= $Event["function"] ?>" <?php } ?> <?php if ($multi != true) { ?> browser-default <?php } ?> <?php if ($Required == true) { ?>required="required" <?php } ?> <?php if ($type == 'number' || $type == 'datetime-local') { ?>step="any" <?php } ?> <?php if ($type == 'combo') { ?> display_fields="<?= $multi ?>" insert_field="<?= $Value ?>" <?php } ?> <?php if ($type != 'combo') { ?>value="<?= $Value ?>" <?php } ?> <?php if ($type != 'combo' && strlen($Value)) { ?>data-keep="<?= $Value ?>" <?php } ?> data-source="<?= $source ?>" name="<?= $name . $ex; ?>" id="<?= $name . $ex; ?>" type="<?= $type ?>" class="filled-in browser-default <?= "{$type} {$name} {$keep}" ?>
 						<?php if (strlen($Value) && $type !== 'combo') { ?>keep<?php } ?>" <?php if (!empty($ex)) { ?>data-class="<?= $name; ?>" <?php } ?> <?php if (!empty($plh)) { ?>placeholder="<?php if ($Required == true) { ?>*<?php } ?><?= $desc ?>" <?php } ?>>
 							<?php if ($type == "button") { ?><?= $Value ?><?php } ?>
 							<?php if ($type == "textarea" || $type == "button") { ?></<?= $type ?>> <?php } else { ?> </input> <?php } ?>
