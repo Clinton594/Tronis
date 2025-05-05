@@ -32,7 +32,7 @@ class TableControl
     foreach ($queries as $k => $_query) {
       $_query = trim($_query);
       global ${$_query};
-      if (isset(${$_query})) {
+      if (isset(${$_query}) && !empty(${$_query})) {
         $fields = $this->get_all_table_fields(${$_query});
         $counter = 0;
         $tablename = $fields->query->table;
@@ -90,12 +90,18 @@ class TableControl
     $table = $query->table;
     $all->query = $query;
     //fetch existing columns from database table and build array with tablename
-    if ($sql = $db->query("SHOW CREATE TABLE $table")) {
-      if ($row = $sql->fetch_assoc()) {
-        $mysql =  $this->queryToArray($row['Create Table']);
-        $all->mysql = $mysql;
-      }
+    try {
+  if ($sql = $db->query("SHOW CREATE TABLE $table")) {
+    if ($row = $sql->fetch_assoc()) {
+      $mysql =  $this->queryToArray($row['Create Table']);
+      $all->mysql = $mysql;
     }
+  }
+} catch (mysqli_sql_exception $e) {
+  // Table doesn't exist yet; ignore this
+}
+    
+    
     return $all;
   }
 
