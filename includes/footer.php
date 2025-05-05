@@ -50,7 +50,7 @@
         <div class="footer-column col-xl-5 col-lg-12 col-md-6 col-sm-12">
           <div class="footer-widget about-widget">
             <div class="logo">
-              <a href="index.html"><img src="images/logos-air7seas/air7seaslogo-white.png" alt="" /></a>
+              <a href="index.html"><img style="max-width: 200px;" src="images/logos-air7seas/air7seaslogo-white.png" alt="" /></a>
             </div>
             <div class="text"><?= $company->name ?> has a global network with distribution centres around the world to meet the warehousing and distribution requirements of various industries. The following locations demonstrate the storage capabilities of <?= $company->name ?> both domestically and internationally.</div>
             <a href="#contact" class="theme-btn btn-style-one hvr-light small"><span class="btn-title">Reach out to us</span></a>
