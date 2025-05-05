@@ -704,7 +704,7 @@
 							<div class="inner-box">
 								<div class="content-box">
 									<div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
-									<div class="text">“Would definitely recommend Tronis Cargo and will definitely be using them again and subsequently.</div>
+									<div class="text">“Would definitely recommend <?= $company->name ?> and will definitely be using them again and subsequently.</div>
 								</div>
 								<div class="thumb"><img src="images/resource/testi-thumb-1.jpg" alt="" /></div>
 								<h4 class="name">Jhon D. William</h4>
@@ -716,7 +716,7 @@
 							<div class="inner-box">
 								<div class="content-box">
 									<div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
-									<div class="text">“Tronis Cargo has really helped our business. Definitely worth the investment. Thank you!</div>
+									<div class="text">“<?= $company->name ?> has really helped our business. Definitely worth the investment. Thank you!</div>
 								</div>
 								<div class="thumb"><img src="images/resource/testi-thumb-2.jpg" alt="" /></div>
 								<h4 class="name">Aleesha Brown</h4>
@@ -728,7 +728,7 @@
 							<div class="inner-box">
 								<div class="content-box">
 									<div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></div>
-									<div class="text">“I highly recommend Tronis Cargo. It has been so important for us as we continue to grow our company.</div>
+									<div class="text">“I highly recommend <?= $company->name ?>. It has been so important for us as we continue to grow our company.</div>
 								</div>
 								<div class="thumb"><img src="images/resource/testi-thumb-3.jpg" alt="" /></div>
 								<h4 class="name">Mike Hardon</h4>

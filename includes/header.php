@@ -40,7 +40,7 @@
 			<div class="main-box">
 				<div class="logo-box">
 					<div class="logo">
-						<a href="<?= $uri->site ?>"><img src="<?= $company->logo_ref ?>" alt="" title="Tronis" /></a>
+						<a href="<?= $uri->site ?>"><img style="max-width: 200px;" src="<?= $company->logo_ref ?>" alt="" title="<?= $company->name ?>" /></a>
 					</div>
 				</div>
 
